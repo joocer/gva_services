@@ -1,5 +1,5 @@
 from gva.data.flows import BaseOperator
-from create_http_task import create_http_task
+from .create_http_task import create_http_task
 
 
 class GoogleTaskOperator(BaseOperator):
