@@ -1,4 +1,4 @@
-from gva.data.flows.operator import BaseOperator
+from gva.data.flows import BaseOperator
 from create_http_task import create_http_task
 
 
