@@ -9,9 +9,9 @@ setup(
    description='GVA Services',
    long_description=long_description,
    long_description_content_type="text/markdown",
-   author='390516',
-   author_email='justin.joyce@lloydsbanking.com',
+   author='joocer',
+   author_email='justin.joyce@joocer.com',
    packages=find_packages(),
-   url="https://github.com/gva-jjoyce/gva_data_flows",
+   url="https://github.com/joocer/gva_services",
    install_requires=['google.cloud', 'gva.data.flows']
 )
