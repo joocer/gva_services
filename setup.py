@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
    name='gva.services',
-   version='0.0.3',
+   version='0.0.4',
    description='GVA Services',
    long_description=long_description,
    long_description_content_type="text/markdown",
@@ -13,5 +13,5 @@ setup(
    author_email='justin.joyce@joocer.com',
    packages=find_packages(),
    url="https://github.com/joocer/gva_services",
-   install_requires=['google.cloud', 'gva.data.flows']
+   install_requires=['google-cloud-tasks', 'gva.data.flows']
 )
