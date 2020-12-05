@@ -23,5 +23,5 @@ class GoogleTaskOperator(BaseOperator):
             project="vulnerability-analytics",
             queue=google_task_queue,
             url='',
-            payload=context,
+            payload=my_context,
             credentials=self.credentials)
