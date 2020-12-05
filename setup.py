@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
    name='gva.services',
-   version='0.0.5',
+   version='0.0.6',
    description='GVA Services',
    long_description=long_description,
    long_description_content_type="text/markdown",
