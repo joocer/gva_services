@@ -19,7 +19,7 @@ https://github.com/googleapis/python-tasks/blob/master/samples/snippets/create_h
 """
 
 def create_http_task(
-    project, queue, url, location='europe-west1', payload=None, in_seconds=None, task_name=None
+    project, queue, url, location='europe-west1', payload=None, in_seconds=None, task_name=None, credentials=None
 ):
     # [START cloud_tasks_create_http_task]
     """Create a task for a given queue with an arbitrary payload."""
@@ -30,7 +30,10 @@ def create_http_task(
     import json
 
     # Create a client.
-    client = tasks_v2.CloudTasksClient()
+    if credentials:
+        client = tasks_v2.CloudTasksClient(credentials=credentials)
+    else:
+        client = tasks_v2.CloudTasksClient()
 
     # Construct the fully qualified queue name.
     parent = client.queue_path(project, location, queue)
