@@ -22,6 +22,6 @@ class GoogleTaskOperator(BaseOperator):
         create_http_task(
             project="vulnerability-analytics",
             queue=google_task_queue,
-            url='',
+            url='https://dispatcher.flows.gva.services/',
             payload=my_context,
             credentials=self.credentials)
