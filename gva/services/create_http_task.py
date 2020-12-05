@@ -41,7 +41,7 @@ def create_http_task(
     # Construct the request body.
     task = {
         "http_request": {  # Specify the type of request.
-            "http_method": tasks_v2.HttpMethod.GET,
+            "http_method": tasks_v2.HttpMethod.POST,
             "url": url,  # The full url path that the task will be sent to.
         }
     }
