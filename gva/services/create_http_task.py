@@ -28,6 +28,9 @@ def create_http_task(
     from google.protobuf import timestamp_pb2
     import datetime
     import json
+    import gva.logging
+
+    logger = gva.logging.get_logger()
 
     # Create a client.
     if credentials:
@@ -51,24 +54,17 @@ def create_http_task(
             payload = json.dumps(payload)
             # specify http content-type to application/json
             task["http_request"]["headers"] = {"Content-type": "application/json"}
-
         # The API expects a payload of type bytes.
         converted_payload = payload.encode()
-
-        # Add the payload to the request.
         task["http_request"]["body"] = converted_payload
-
     if in_seconds is not None:
         # Convert "seconds from now" into an rfc3339 datetime string.
         d = datetime.datetime.utcnow() + datetime.timedelta(seconds=in_seconds)
-
         # Create Timestamp protobuf.
         timestamp = timestamp_pb2.Timestamp()
         timestamp.FromDatetime(d)
-
         # Add the timestamp to the tasks.
         task["schedule_time"] = timestamp
-
     if task_name is not None:
         # Add the name to tasks.
         task["name"] = task_name
@@ -76,6 +72,5 @@ def create_http_task(
     # Use the client to build and send the task.
     response = client.create_task(request={"parent": parent, "task": task})
 
-    print("Created task {}".format(response.name))
-    # [END cloud_tasks_create_http_task]
+    logger.debug(F"Created task - {queue} - {url} - {response.name}")
     return response

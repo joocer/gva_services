@@ -12,12 +12,11 @@ class GoogleTaskOperator(BaseOperator):
         )
 
     def execute(self, data={}, context={}):
-        google_task_queue = context.get("google_task_queue", "reply")
         my_context = context.copy()
         my_context.pop('execution_trace') # remove this item from the context
         create_http_task(
-            project="vulnerability-analytics",
-            queue=google_task_queue,
+            project='vulnerability-analytics',
+            queue='reply',
             url='https://dispatcher.flows.gva.services/',
             payload=my_context,
             credentials=self.credentials)
