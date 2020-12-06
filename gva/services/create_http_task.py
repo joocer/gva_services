@@ -31,6 +31,7 @@ def create_http_task(
     import gva.logging
 
     logger = gva.logging.get_logger()
+    logger.setLevel(10)
 
     # Create a client.
     if credentials:
@@ -72,5 +73,5 @@ def create_http_task(
     # Use the client to build and send the task.
     response = client.create_task(request={"parent": parent, "task": task})
 
-    logger.debug(F"Created task - {queue} - {url} - {response.name}")
+    logger.debug(F"[CREATE_TASK] Success - {queue} - {url} - {response.name}")
     return response
