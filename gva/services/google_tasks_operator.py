@@ -14,7 +14,7 @@ class GoogleTaskOperator(BaseOperator):
     def execute(self, data={}, context={}):
         my_context = context.copy()
         my_context.pop('execution_trace') # remove this item from the context
-        job_name = context.get('job_name', '')
+        job_name = context.get('job_name', '').lower()
         create_http_task(
             project='vulnerability-analytics',
             queue='reply',
