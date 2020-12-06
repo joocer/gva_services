@@ -31,7 +31,6 @@ def create_http_task(
     import gva.logging
 
     logger = gva.logging.get_logger()
-    logger.setLevel(10)
 
     # Create a client.
     if credentials:

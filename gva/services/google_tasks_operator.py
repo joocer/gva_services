@@ -21,3 +21,4 @@ class GoogleTaskOperator(BaseOperator):
             url=F'https://dispatcher.flows.gva.services/{job_name}',
             payload=my_context,
             credentials=self.credentials)
+        return data, my_context
